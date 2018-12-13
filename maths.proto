@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package maths;
+
+message MathRequest {
+    double Number1 = 1;
+    double Number2 = 2;
+    string Operation = 3;
+}
+
+message MathResponse {
+    double Result = 1;
+}
+
+service Maths {
+    // rpc DoMath(MathRequest) returns (MathResponse);
+    rpc DoMathStream(stream MathRequest) returns (stream MathResponse);
+}
